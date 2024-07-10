@@ -66,7 +66,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 
-## …or create a new repository on the command line
+### …or create a new repository on the command line
 echo "# laravel11-ms" >> README.md
 git init
 git add README.md
