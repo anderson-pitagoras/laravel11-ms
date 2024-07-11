@@ -78,3 +78,21 @@ git push -u origin main
 git remote add origin https://github.com/anderson-pitagoras/laravel11-ms.git
 git branch -M main
 git push -u origin main
+
+
+            $table->id(); //int
+            $table->string('nome'); //string
+            $table->string('cpf'); //string
+            $table->string('email'); //string
+            $table->string('telefone'); //string
+            $table->date('nascimento'); //date 1998-11-29
+            $table->datetime('data'); //datetime 1998-11-29 17:07:07
+            $table->float('valor'); // float 18,00
+            $table->double('preco'); // double 18,00
+            $table->decimal('taxa', 8,2); // decimal duas casa
+            $table->integer('idade'); // in 77
+            $table->biginteger('saldo'); // saldo 77
+            $table->boolean('ativo'); // boolean true or false
+            $table->text('desc'); // descrição
+            $table->longtext('descricao'); // descrição longa
+            $table->timestamps();
