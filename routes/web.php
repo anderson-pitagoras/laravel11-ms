@@ -18,6 +18,8 @@ Route::post('/store-cliente',[ClienteController::class, 'store'])->name('cliente
 Route::get('/edit-cliente/{cliente}',[ClienteController::class, 'edit'])->name('cliente.edit');
 // editar informações no DB
 Route::put('/update-cliente/{cliente}',[ClienteController::class, 'update'])->name('cliente.update');
+// excluir lientes por id
+Route::delete('/delete-cliente/{cliente}',[ClienteController::class, 'delete'])->name('cliente.delete');
 
 
 
