@@ -10,10 +10,18 @@ use App\Http\Controllers\update;
 class ClienteController extends Controller
 {
     //listar clietntes
-    public function index()
+    public function index(Request $request)
     {
+        //busca e paginação a partir do termo de pesquisa
+        $termoDePesquisa = $request->input('pesquisa');
         //buscar informações do DB
-        $cliente = Cliente::orderByDesc('created_at')->get();
+        $cliente = Cliente::where('nome','like', '%' . $termoDePesquisa . '%' )
+        ->orwhere('cpf','like', '%' . $termoDePesquisa . '%' )
+        ->orwhere('email','like', '%' . $termoDePesquisa . '%' )
+        ->orderByDesc('created_at')
+        ->paginate(3)
+        ->withQueryString();
+
         // chama view
         return view('cliente/index', ['cliente' => $cliente]);
     }
