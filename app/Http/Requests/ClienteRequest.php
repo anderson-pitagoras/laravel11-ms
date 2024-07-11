@@ -40,4 +40,5 @@ class ClienteRequest extends FormRequest
             'nascimento.required' => 'A data de nascimento é obrigatória',
         ];
     }
+    
 }

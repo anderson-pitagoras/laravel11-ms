@@ -31,7 +31,6 @@
             <div class="alert alert-success">
             {{ session('success') }}
             </div>
-
             @endif
             <a href="{{ route('cliente.index') }}" class="btn btn-primary">Voltar</a>
         </div>

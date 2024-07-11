@@ -342,9 +342,11 @@
         </div>
       </div>
 
-
-
-      <h2>Lista de Clientes</h2>
+      @if(session('success'))
+      <div class="alert alert-success">
+      {{ session('success') }}
+      </div>
+      @endif
       <div class="table-responsive small">
         <table class="table table-striped table-sm">
           <thead>
@@ -359,34 +361,20 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>7</td>
-              <td>Maykon Silveira</td>
-              <td>7777</td>
-              <td>(41)7777-7777</td>
-              <td>cursos@maykonsilveria.com.br</td>
-              <td><a href="" class="btn btn-primary">Editar</a></td>
-              <td><a href="" class="btn btn-danger">Excluir</a></td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td>Maykon Silveira</td>
-              <td>7777</td>
-              <td>(41)7777-7777</td>
-              <td>cursos@maykonsilveria.com.br</td>
-              <td><a href="" class="btn btn-primary">Editar</a></td>
-              <td><a href="" class="btn btn-danger">Excluir</a></td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td>Maykon Silveira</td>
-              <td>7777</td>
-              <td>(41)7777-7777</td>
-              <td>cursos@maykonsilveria.com.br</td>
-              <td><a href="" class="btn btn-primary">Editar</a></td>
-              <td><a href="" class="btn btn-danger">Excluir</a></td>
-            </tr>
+            @forelse ($cliente as $clienteSite )
 
+            <tr>
+              <td>{{ $clienteSite->id }}</td>
+              <td>{{ $clienteSite->nome }}</td>
+              <td>{{ $clienteSite->cpf }}</td>
+              <td>{{ $clienteSite->fone }}</td>
+              <td>{{ $clienteSite->email }}</td>
+              <td><a href="{{ route('cliente.edit', ['cliente' => $clienteSite->id]) }}" class="btn btn-primary">Editar</a></td>
+              <td><a href="" class="btn btn-danger">Excluir</a></td>
+            </tr>
+            @empty
+            <tr><td>Nada foi cadastrado!</td></tr>
+            @endforelse
           </tbody>
         </table>
       </div>
